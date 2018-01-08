@@ -1,0 +1,47 @@
+/*******************
+Courses page
+*******************/
+.centered-content {
+  display: flex;
+  width: 100%;
+  max-width: 1040px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.course-page-top-container {
+  padding: 30px 0;
+  border-bottom: 1px solid #ebebeb;
+  .centered-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.icon-sign {
+  font-size: 30px!important;
+  cursor: pointer;
+  color: $themecolor;
+  &:hover {
+    color: darken($themecolor, 10%);
+  }
+}
+.course-page-main-container {
+  .centered-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+  .course-page-main-container-inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+.back-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  .icon-sign {
+    padding-right: 5px;
+  }
+}

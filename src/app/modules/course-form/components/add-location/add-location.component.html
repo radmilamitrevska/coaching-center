@@ -1,0 +1,33 @@
+<!-- Add location dialog -->
+<div class="add-location-dialog">
+    <!-- Top part -->
+    <div class="add-location-dialog-top">
+        <h3>Add new locatation</h3>
+    </div>
+    <!-- Add location fields -->
+    <form class="add-location-fields" (submit)="addLocationFunc()" [formGroup]="locationForm">
+        <!-- Title -->
+        <mat-form-field class="full-width">
+            <label>Title</label>
+            <input matInput formControlName="title">
+            <span class="form-errors" *ngIf="locationForm.controls.title.invalid && submitForm">Title is required</span>
+        </mat-form-field>
+        <!-- Address -->
+        <mat-form-field class="full-width">
+            <label>Address</label>
+            <input matInput formControlName="address">
+            <span class="form-errors" *ngIf="locationForm.controls.address.invalid && submitForm">Address is required</span>
+        </mat-form-field>
+        <!-- City -->
+        <mat-form-field class="full-width">
+            <label>City</label>
+            <input matInput formControlName="city">
+            <span class="form-errors" *ngIf="locationForm.controls.city.invalid && submitForm">City is required</span>
+        </mat-form-field>
+        <!-- Action Buttons -->
+        <div class="form-action-buttons">
+            <button class="form-buttons cancel" (click)="closeDialog()">Cancel <i class="fa fa-times" aria-hidden="true"></i></button>
+            <button class="form-buttons save">Save <i class="fa fa-check" aria-hidden="true"></i></button>
+        </div>
+    </form>
+</div>

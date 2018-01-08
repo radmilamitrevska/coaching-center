@@ -1,0 +1,81 @@
+/*******************
+Single course box
+*******************/
+app-course {
+  width: 30%;
+  margin: 0 1.5%;
+  @media screen and (max-width: 860px) {
+    width: 47%;
+  }
+  @media screen and (max-width: 560px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+.single-course-box {
+  background-color: #fafafa;
+  padding: 20px;
+  border: 1px solid #ebebeb;
+  margin-bottom: 20px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.single-course-box-top {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  span {
+    font-weight: bold;
+  }
+  .icon-sign {
+    font-size: 20px!important;
+  }
+}
+.single-course-box-date {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+  .fa {
+    padding-right: 10px;
+  }
+}
+.single-course-box-location {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+  .fa {
+    padding-right: 10px;
+  }
+  span {
+    &:after {
+      content: ', ';
+    }
+    &:last-child {
+      &:after {
+        content: ' ';
+      }
+    }
+  }
+  .locations-listing {
+    margin: 0;
+  }
+}
+.single-course-box-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: auto;
+  .courseid {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: $green-color;
+    color: #fff;
+    font-size: 12px;
+  }
+  .course-status {
+    color: $orange-color;
+  }
+}

@@ -1,0 +1,106 @@
+<div class="centered-content courses-form-page">
+  <!-- Courses tabs -->
+  <div class="courses-form-tab">
+    <span class="active">Details</span>
+    <span>Registration</span>
+    <span>Waitlist</span>
+  </div>
+  <!-- Courses form -->
+  <div class="courses-form-container">
+    <form action="javascript:;" class="course-form" (submit)="submitCourseForm()" [formGroup]="courseForm">
+      <div class="course-form-main-container">
+        <div class="courses-form-container-left">
+          <!-- Title -->
+          <mat-form-field class="full-width">
+            <label>Title</label>
+            <input matInput formControlName="title">
+          </mat-form-field>
+          <div class="form-errors" *ngIf="courseForm.controls.title.invalid && submitForm">Title is required</div>
+          <!-- Start date -->
+          <mat-form-field class="full-width date-picker">
+            <label>Start Date</label>
+            <input matInput [matDatepicker]="start_date" formControlName="start_date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
+            <mat-datepicker #start_date></mat-datepicker>
+          </mat-form-field>
+          <div class="form-errors" *ngIf="courseForm.controls.start_date.invalid && submitForm">Start Date is required</div>
+          <!-- End date -->
+          <mat-form-field class="full-width date-picker">
+            <label>End Date</label>
+            <input matInput [matDatepicker]="end_date" [min]="courseForm.value.start_date" formControlName="end_date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="end_date"></mat-datepicker-toggle>
+            <mat-datepicker #end_date></mat-datepicker>
+          </mat-form-field>
+          <div class="form-errors" *ngIf="courseForm.controls.end_date.invalid && submitForm">End Date is required</div>
+          <!-- Continuous-->
+          <mat-checkbox class="full-width" formControlName="continuous">Continuous</mat-checkbox>
+          <!-- Course Status -->
+          <mat-form-field class="full-width">
+            <label>Course Status</label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let status of courses_status" [value]="status.id">
+                {{ status.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- Contact Details -->
+          <mat-form-field class="full-width">
+            <label>Contact Details</label>
+            <input matInput formControlName="contact">
+          </mat-form-field>
+          <div class="form-errors" *ngIf="courseForm.controls.contact.invalid && submitForm">Email is not valid</div>
+          <!-- Course  Details -->
+          <div class="form-group textarea">
+           <label>Course Description</label>
+            <div class="course-details-texteditor" [froalaEditor]='editorOptions' formControlName="details"></div>
+          </div>
+        </div>
+        <div class="courses-form-container-right">
+          <!-- Location box -->
+          <div class="course-form-right-blocks">
+            <!-- Top part -->
+            <div class="course-form-right-block-top">
+              <h5>Location</h5>
+              <i aria-hidden="true" class="fa fa-plus-circle icon-sign" *ngIf="!courseForm.value.is_remote" (click)="openLocationDialog()"></i>
+            </div>
+            <!-- Main container -->
+            <div class="course-form-right-block-cont">
+              <!-- Continuous-->
+              <mat-checkbox class="full-width" formControlName="is_remote">Remote</mat-checkbox>
+              <perfect-scrollbar style="max-height: 200px;">
+                <app-single-location (editLocation)="editLocation($event)" (deleteLocation)="deleteLocation($event)" [index]="i" [location]="location" *ngFor="let location of course.location; let i = index"></app-single-location>
+              </perfect-scrollbar>
+            </div>
+          </div>
+          <!-- Course instructors box -->
+          <div class="course-form-right-blocks">
+            <!-- Top part -->
+            <div class="course-form-right-block-top">
+              <h5>Course Instructors</h5>
+              <i aria-hidden="true" class="fa fa-plus-circle icon-sign" (click)="openInstructorDialog()"></i>
+            </div>
+            <!-- Main container -->
+            <div class="course-form-right-block-cont">
+              <perfect-scrollbar style="max-height: 200px;">
+                <app-instructor  (editInstructor)="editInstructor($event)" (deleteInstructor)="deleteInstructor($event)" [index]="i" [instructor]="instructor" *ngFor="let instructor of course.instructors; let i = index"></app-instructor>
+              </perfect-scrollbar>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Action Buttons -->
+      <div class="form-action-buttons">
+        <button (click)="closeFormFunc()" class="form-buttons cancel" [disabled]="callServerLoader">Cancel <i class="fa fa-times" aria-hidden="true"></i></button>
+        <div class="save-btn-cont">
+          <mat-progress-spinner
+                  *ngIf="callServerLoader"
+                  class="example-margin"
+                  [color]=progressBar.color
+                  [mode]=progressBar.mode>
+          </mat-progress-spinner>
+          <button class="form-buttons save" type="submit" [disabled]="callServerLoader">Save <i class="fa fa-check" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

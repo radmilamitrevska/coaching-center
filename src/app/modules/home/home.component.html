@@ -1,0 +1,36 @@
+<!-- Course main page container -->
+<div class="course-page">
+  <!-- Course page top part -->
+  <div class="course-page-top-container">
+    <div class="centered-content">
+      <h1>Manage Courses</h1>
+      <i class="fa fa-plus-circle icon-sign" aria-hidden="true" (click)="showCourseForm()" *ngIf="courseListingVisible;else course_form_link"></i>
+      <ng-template #course_form_link>
+        <span class="back-link" (click)="hideCourseForm()"><i class="fa fa-chevron-left icon-sign" aria-hidden="true"></i>Back</span>
+      </ng-template>
+    </div>
+  </div>
+  <!-- Course page main part -->
+  <div class="course-page-main-container">
+    <div class="centered-content" *ngIf="courseListingVisible;else course_form">
+      <!-- Course page main listing container -->
+      <div class="course-page-main-container-inline" *ngIf="!loading">
+        <app-course (editCourse)="showCourseForm($event, true)" [course]="course" *ngFor="let course of courses | paginate: { id: 'server', itemsPerPage: 9, currentPage: httpResponse.meta.current_page, totalItems: httpResponse.meta.total }"></app-course>
+      </div>
+      <pagination-controls *ngIf="!loading" (pageChange)="getPage($event)" id="server"></pagination-controls>
+    </div>
+    <!-- Course form -->
+    <ng-template #course_form>
+      <app-course-form [edit]="edit" [course]="course" (closeForm)="hideCourseForm($event)"></app-course-form>
+    </ng-template>
+    <!-- Loading icon container -->
+    <div class="loading-icon-container" *ngIf="loading">
+      <mat-progress-spinner
+              class="example-margin"
+              [color]=progressBar.color
+              [mode]=progressBar.mode>
+      </mat-progress-spinner>
+    </div>
+  </div>
+</div>
+

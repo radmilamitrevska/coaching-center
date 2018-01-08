@@ -1,0 +1,23 @@
+/*******************
+Paggination
+*******************/
+.ngx-pagination {
+  text-align: center;
+  padding-left: 0;
+}
+.ngx-pagination li {
+  background-color: #fafafa;
+  border: 1px solid #ebebeb;
+  margin-right: 0;
+  &.current{
+    background-color: #d5425a;
+    color: #fff;
+  }
+  a {
+    color: $main-body-color;
+    &:hover{
+      background-color: #d5425a;
+      color: #fff;
+    }
+  }
+}

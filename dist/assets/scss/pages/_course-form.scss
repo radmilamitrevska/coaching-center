@@ -1,0 +1,108 @@
+/*******************
+Course form
+*******************/
+.courses-form-tab {
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  span {
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0 0 20px 0;
+    flex: 1;
+    text-align: center;
+    &.active,
+    &:hover {
+      color: $themecolor;
+      border-bottom: 2px solid $themecolor;
+    }
+  }
+}
+.centered-content.courses-form-page {
+  flex-direction: column;
+}
+.courses-form-page {
+  .form-action-buttons {
+    padding: 20px 0;
+    border-top: 1px solid #ebebeb;
+  }
+}
+.courses-form-container {
+  padding: 20px 0;
+}
+.course-form {
+  display: flex;
+  flex-direction: column;
+}
+.course-form-main-container {
+  display: flex;
+  @media screen and (max-width: 680px) {
+    flex-direction: column;
+  }
+}
+.form-errors {
+  margin-top: -20px;
+  font-size: 12px;
+  color: red;
+}
+.courses-form-container-left {
+  flex: 2;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  margin-right: 20px;
+  padding: 20px;
+  @media screen and (max-width: 860px) {
+    flex: 1;
+  }
+  @media screen and (max-width: 680px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+mat-form-field {
+  &.full-width {
+    width: 100%;
+  }
+  .mat-form-field-underline {
+    bottom: 1.65em;
+    width: 99%;
+    left: 0.5%;
+    background: transparent;
+  }
+}
+.date-picker {
+  .mat-input-suffix {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+  }
+}
+.mat-input-infix {
+  label {
+    display: flex;
+    padding-bottom: 10px;
+  }
+  input,
+  .mat-select {
+    border: 1px solid #d6d6d6;
+    padding: 7px;
+    border-radius: 3px;
+  }
+}
+.form-group {
+  &.textarea {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  label {
+    padding-bottom: 10px;
+  }
+}
+mat-checkbox label {
+  padding: 10px 0;
+}
+.fr-toolbar {
+  border-top: 5px solid #ebebeb;
+}

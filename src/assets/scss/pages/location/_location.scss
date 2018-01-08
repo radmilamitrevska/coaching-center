@@ -1,0 +1,20 @@
+/*******************
+Location
+*******************/
+.single-location-cont {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 10px 0;
+  border-bottom: 1px solid #dedede;
+  .single-locat-info {
+    font-size: 13px;
+    padding-bottom: 5px;
+  }
+}
+app-single-location {
+  &:last-child {
+    .single-location-cont {
+      border-bottom: 1px solid transparent;
+    }
+  }
+}

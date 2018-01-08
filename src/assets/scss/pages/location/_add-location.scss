@@ -1,0 +1,69 @@
+/*******************
+Add location
+*******************/
+.add-dialog-top {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.add-dialog {
+  .form-action-buttons {
+    padding-top: 20px;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.add-instructor-field {
+  min-width: 330px;
+}
+.form-action-buttons {
+  display: flex;
+  justify-content: space-between;
+  .form-buttons {
+    padding: 10px 60px 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    &.cancel {
+      background-color: #cacaca;
+      &:hover {
+        background-color: darken(#cacaca, 10%);
+      }
+    }
+    &.save {
+      margin-left: 10px;
+      background-color: $green-color;
+      &:hover {
+        background-color: darken($green-color, 10%);
+      }
+    }
+    .fa {
+      font-size: 15px;
+      position: absolute;
+      right: 10px;
+      top: 9px;
+    }
+  }
+  .save-btn-cont {
+    display: flex;
+    align-items: center;
+  }
+  mat-progress-spinner,
+  svg {
+    width: 20px!important;
+    height: 20px!important;
+  }
+}
+.add-location-fields,
+.add-fields {
+  .form-errors {
+    position: absolute;
+    bottom: -15px;
+  }
+}
+app-add-instructor {
+  .mat-input-infix {
+    min-width: 300px;
+  }
+}

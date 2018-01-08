@@ -1,0 +1,21 @@
+<!-- Single course component -->
+<div class="single-course-box">
+  <!-- -Top -->
+  <div class="single-course-box-top">
+    <span>{{course.title}}</span>
+    <i (click)="editCourseFunc()" class="fa fa-pencil-square icon-sign" aria-hidden="true"></i>
+  </div>
+  <!-- Info -->
+  <span class="single-course-box-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{course.start_date}}</span>
+  <span class="single-course-box-location" *ngIf="course.location.length">
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+    <p class="locations-listing">
+      <span *ngFor="let location of course.location">{{location.city}}</span>
+    </p>
+  </span>
+  <!-- Bottom -->
+  <div class="single-course-box-bottom">
+    <span class="courseid">#1{{course.id}}</span>
+    <span *ngIf="course.status" class="course-status">{{getStatus()}}</span>
+  </div>
+</div>

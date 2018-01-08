@@ -1,0 +1,45 @@
+/*******************
+Course form right block
+*******************/
+.courses-form-container-right {
+  flex: 1;
+  .mat-checkbox-layout {
+    font-size: 14px;
+  }
+}
+.ps-content {
+  padding-right: 10px;
+}
+.course-form-right-blocks {
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  margin-bottom: 20px;
+}
+.course-form-right-block-top {
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .icon-sign {
+    font-size: 18px!important;
+  }
+}
+.course-form-right-block-cont {
+  padding: 20px 5px 20px 20px;
+}
+.course-form-right-block-cont-first {
+  display: flex;
+  justify-content: space-between;
+  span {
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .fa {
+    color: #a8a8a8;
+    cursor: pointer;
+    &:hover {
+      color: darken(#a8a8a8, 10%);
+    }
+  }
+}

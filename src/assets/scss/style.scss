@@ -1,0 +1,12 @@
+/* SHARED FILES */
+@import "shared/variables";
+@import "shared/global";
+@import "shared/pagination";
+
+/* PAGES */
+@import "pages/courses";
+@import "pages/single-course";
+@import "pages/course-form";
+@import "pages/location/location";
+@import "pages/location/add-location";
+@import "pages/course-form-rblocks";
